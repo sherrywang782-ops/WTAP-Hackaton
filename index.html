@@ -86,19 +86,136 @@
                 <h2 class="passcode-title" id="passcodeTitle">Enter Event Passcode</h2>
                 <p class="passcode-subtitle" id="passcodeSubtitle">Enter the passcode provided by your event planner to join the matching event</p>
                 
-                <div class="passcode-input-container">
+                <div class="email-input-container">
+                    <label for="emailInput" class="email-label">Email Address</label>
                     <input 
-                        type="text" 
-                        id="passcodeInput" 
-                        class="passcode-input" 
-                        placeholder="Enter passcode"
-                        maxlength="20"
-                        autocomplete="off"
+                        type="email" 
+                        id="emailInput" 
+                        class="email-input" 
+                        placeholder="your.email@example.com"
+                        autocomplete="email"
                     />
+                </div>
+                
+                <div class="passcode-input-container">
+                    <label class="passcode-label">Passcode</label>
+                    <div class="passcode-digits">
+                        <input 
+                            type="text" 
+                            id="passcodeDigit1" 
+                            class="passcode-digit" 
+                            maxlength="1"
+                            autocomplete="off"
+                            inputmode="numeric"
+                        />
+                        <input 
+                            type="text" 
+                            id="passcodeDigit2" 
+                            class="passcode-digit" 
+                            maxlength="1"
+                            autocomplete="off"
+                            inputmode="numeric"
+                        />
+                        <input 
+                            type="text" 
+                            id="passcodeDigit3" 
+                            class="passcode-digit" 
+                            maxlength="1"
+                            autocomplete="off"
+                            inputmode="numeric"
+                        />
+                        <input 
+                            type="text" 
+                            id="passcodeDigit4" 
+                            class="passcode-digit" 
+                            maxlength="1"
+                            autocomplete="off"
+                            inputmode="numeric"
+                        />
+                    </div>
                     <button class="passcode-submit" id="passcodeSubmit">Enter →</button>
                 </div>
                 
                 <div class="passcode-error" id="passcodeError"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Animation Screen -->
+    <div class="category-screen" id="categoryScreen">
+        <div class="category-container">
+            <div class="category-content">
+                <div class="category-number" id="categoryNumber">Category 1</div>
+                <div class="category-title" id="categoryTitle">Self-Reflection</div>
+                <div class="category-icon" id="categoryIcon">🧘</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Survey Question Screen -->
+    <div class="survey-screen" id="surveyScreen">
+        <div class="survey-container">
+            <div class="survey-content">
+                <div class="survey-category-badge">Category 1: Self-Reflection</div>
+                <h2 class="survey-question" id="surveyQuestion">
+                    I want to run a marathon, but am not a runner. Oh no! I am the type of person to create a well thought out plan for myself including categories like training and diet
+                </h2>
+                
+                <!-- Slider Question Type -->
+                <div class="slider-container" id="sliderContainer">
+                    <div class="slider-labels">
+                        <span class="slider-label" data-value="1">1</span>
+                        <span class="slider-label" data-value="2">2</span>
+                        <span class="slider-label" data-value="3">3</span>
+                        <span class="slider-label" data-value="4">4</span>
+                        <span class="slider-label" data-value="5">5</span>
+                    </div>
+                    
+                    <div class="slider-wrapper">
+                        <input 
+                            type="range" 
+                            id="surveySlider" 
+                            class="survey-slider" 
+                            min="1" 
+                            max="5" 
+                            value="3" 
+                            step="1"
+                        />
+                        <div class="slider-track">
+                            <div class="slider-fill" id="sliderFill"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="slider-value-display" id="sliderValueDisplay">
+                        <span class="value-number" id="valueNumber">3</span>
+                        <span class="value-description" id="valueDescription">Moderate</span>
+                    </div>
+                </div>
+                
+                <!-- Fill in the Blank Question Type -->
+                <div class="fillblank-container" id="fillblankContainer" style="display: none;">
+                    <div class="fillblank-prompt" id="fillblankPrompt"></div>
+                    <div class="fillblank-input-wrapper">
+                        <input 
+                            type="text" 
+                            id="fillblankInput" 
+                            class="fillblank-input" 
+                            placeholder="Type your answer here..."
+                            autocomplete="off"
+                        />
+                        <div class="fillblank-underline"></div>
+                    </div>
+                    <div class="fillblank-hint" id="fillblankHint"></div>
+                </div>
+                
+                <!-- Drag and Drop Ranking Question Type -->
+                <div class="ranking-container" id="rankingContainer" style="display: none;">
+                    <div class="ranking-instructions" id="rankingInstructions"></div>
+                    <div class="ranking-list" id="rankingList"></div>
+                    <div class="ranking-hint">💡 Drag items to reorder them from most to least interesting</div>
+                </div>
+                
+                <button class="survey-next" id="surveyNext">Next →</button>
             </div>
         </div>
     </div>
