@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MentorMatch - Find Your Perfect Connection</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-animation">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+        <div class="floating-shape shape-4"></div>
+        <div class="floating-shape shape-5"></div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <h1 class="logo">
+                <span class="logo-icon">✨</span>
+                Symmetry
+            </h1>
+            <p class="tagline">Where connections become friendships, and guidance becomes growth</p>
+        </header>
+
+        <main class="main-content">
+            <div class="welcome-section">
+                <h2 class="welcome-title">Welcome to Your Journey!</h2>
+                <p class="welcome-text">Choose your role and let's start building meaningful connections together</p>
+            </div>
+
+            <div class="roles-container">
+                <div class="role-card" data-role="mentor">
+                    <div class="role-icon">🎓</div>
+                    <h3 class="role-title">Mentor</h3>
+                    <p class="role-description">Share your wisdom, inspire growth, and make a real impact on someone's journey</p>
+                    <div class="role-features">
+                        <span class="feature-tag">Guide</span>
+                        <span class="feature-tag">Inspire</span>
+                        <span class="feature-tag">Connect</span>
+                    </div>
+                    <button class="role-button">Become a Mentor</button>
+                </div>
+
+                <div class="role-card" data-role="mentee">
+                    <div class="role-icon">🌟</div>
+                    <h3 class="role-title">Mentee</h3>
+                    <p class="role-description">Find your perfect mentor, learn, grow, and build lasting personal connections</p>
+                    <div class="role-features">
+                        <span class="feature-tag">Learn</span>
+                        <span class="feature-tag">Grow</span>
+                        <span class="feature-tag">Thrive</span>
+                    </div>
+                    <button class="role-button">Find a Mentor</button>
+                </div>
+
+                <div class="role-card" data-role="planner">
+                    <div class="role-icon">📋</div>
+                    <h3 class="role-title">Planner</h3>
+                    <p class="role-description">Choose survey questions, and create the perfect matching experience for everyone</p>
+                    <div class="role-features">
+                        <span class="feature-tag">Plan</span>
+                        <span class="feature-tag">Design</span>
+                        <span class="feature-tag">Organize</span>
+                    </div>
+                    <button class="role-button">Start Planning</button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Made with 💜 for meaningful connections</p>
+        </footer>
+    </div>
+
+    <!-- Passcode Entry Screen -->
+    <div class="passcode-screen" id="passcodeScreen">
+        <div class="passcode-container">
+            <button class="back-button" id="backButton">← Back</button>
+            <div class="passcode-content">
+                <div class="passcode-icon" id="passcodeIcon">🔐</div>
+                <h2 class="passcode-title" id="passcodeTitle">Enter Event Passcode</h2>
+                <p class="passcode-subtitle" id="passcodeSubtitle">Enter the passcode provided by your event planner to join the matching event</p>
+                
+                <div class="passcode-input-container">
+                    <input 
+                        type="text" 
+                        id="passcodeInput" 
+                        class="passcode-input" 
+                        placeholder="Enter passcode"
+                        maxlength="20"
+                        autocomplete="off"
+                    />
+                    <button class="passcode-submit" id="passcodeSubmit">Enter →</button>
+                </div>
+                
+                <div class="passcode-error" id="passcodeError"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

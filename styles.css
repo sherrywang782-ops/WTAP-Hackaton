@@ -1,0 +1,692 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-purple: #8B5CF6;
+    --secondary-purple: #A78BFA;
+    --light-purple: #C4B5FD;
+    --dark-purple: #6D28D9;
+    --accent-pink: #EC4899;
+    --accent-blue: #3B82F6;
+    --accent-yellow: #FBBF24;
+    --accent-green: #10B981;
+    --bg-gradient-start: #1E1B4B;
+    --bg-gradient-end: #312E81;
+    --text-light: #F3F4F6;
+    --text-muted: #D1D5DB;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 50%, #1E1B4B 100%);
+    color: var(--text-light);
+    overflow-x: hidden;
+    position: relative;
+}
+
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.floating-shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+    animation: float 20s infinite ease-in-out;
+}
+
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    background: var(--primary-purple);
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    width: 200px;
+    height: 200px;
+    background: var(--accent-pink);
+    top: 60%;
+    right: 10%;
+    animation-delay: 2s;
+}
+
+.shape-3 {
+    width: 150px;
+    height: 150px;
+    background: var(--accent-blue);
+    bottom: 20%;
+    left: 20%;
+    animation-delay: 4s;
+}
+
+.shape-4 {
+    width: 250px;
+    height: 250px;
+    background: var(--accent-yellow);
+    top: 30%;
+    right: 30%;
+    animation-delay: 6s;
+}
+
+.shape-5 {
+    width: 180px;
+    height: 180px;
+    background: var(--accent-green);
+    bottom: 10%;
+    right: 5%;
+    animation-delay: 8s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(30px, -30px) rotate(90deg);
+    }
+    50% {
+        transform: translate(-20px, 20px) rotate(180deg);
+    }
+    75% {
+        transform: translate(20px, 30px) rotate(270deg);
+    }
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+    animation: fadeInDown 1s ease-out;
+}
+
+.logo {
+    font-size: 4rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary-purple), var(--accent-pink), var(--accent-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    display: inline-block;
+    animation: gradientShift 3s ease infinite;
+    background-size: 200% 200%;
+}
+
+.logo-icon {
+    display: inline-block;
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.tagline {
+    font-size: 1.3rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    font-style: italic;
+}
+
+.main-content {
+    margin-bottom: 4rem;
+}
+
+.welcome-section {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.welcome-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.welcome-text {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.roles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.role-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(139, 92, 246, 0.3);
+    border-radius: 24px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1s ease-out both;
+}
+
+.role-card:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.role-card:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.role-card:nth-child(3) {
+    animation-delay: 0.7s;
+}
+
+.role-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.role-card:hover::before {
+    opacity: 1;
+}
+
+.role-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--primary-purple);
+    box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3),
+                0 0 60px rgba(139, 92, 246, 0.1);
+}
+
+.role-card[data-role="mentor"]:hover {
+    border-color: var(--accent-blue);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3),
+                0 0 60px rgba(59, 130, 246, 0.1);
+}
+
+.role-card[data-role="mentee"]:hover {
+    border-color: var(--accent-pink);
+    box-shadow: 0 20px 40px rgba(236, 72, 153, 0.3),
+                0 0 60px rgba(236, 72, 153, 0.1);
+}
+
+.role-card[data-role="planner"]:hover {
+    border-color: var(--accent-yellow);
+    box-shadow: 0 20px 40px rgba(251, 191, 36, 0.3),
+                0 0 60px rgba(251, 191, 36, 0.1);
+}
+
+.role-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.role-card[data-role="mentor"] .role-icon {
+    animation-delay: 0s;
+}
+
+.role-card[data-role="mentee"] .role-icon {
+    animation-delay: 0.2s;
+}
+
+.role-card[data-role="planner"] .role-icon {
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.role-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.role-description {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    min-height: 60px;
+}
+
+.role-features {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.feature-tag {
+    background: rgba(139, 92, 246, 0.2);
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--light-purple);
+    transition: all 0.3s ease;
+}
+
+.role-card:hover .feature-tag {
+    background: rgba(139, 92, 246, 0.4);
+    border-color: var(--primary-purple);
+    transform: scale(1.05);
+}
+
+.role-button {
+    background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
+    border: none;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.role-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.role-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.role-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+}
+
+.role-button:active {
+    transform: scale(0.98);
+}
+
+.role-card[data-role="mentor"] .role-button {
+    background: linear-gradient(135deg, var(--accent-blue), #60A5FA);
+}
+
+.role-card[data-role="mentee"] .role-button {
+    background: linear-gradient(135deg, var(--accent-pink), #F472B6);
+}
+
+.role-card[data-role="planner"] .role-button {
+    background: linear-gradient(135deg, var(--accent-yellow), #FCD34D);
+}
+
+.footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    animation: fadeIn 1s ease-out 0.8s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 2.5rem;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    .welcome-title {
+        font-size: 2rem;
+    }
+
+    .welcome-text {
+        font-size: 1rem;
+    }
+
+    .roles-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .role-card {
+        padding: 2rem;
+    }
+
+    .role-icon {
+        font-size: 3rem;
+    }
+
+    .role-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .header {
+        margin-bottom: 2rem;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    .role-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Passcode Screen Styles */
+.passcode-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 50%, #5B21B6 100%);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.passcode-screen.active {
+    display: flex;
+}
+
+.passcode-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 1.5rem;
+    position: relative;
+}
+
+.back-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(139, 92, 246, 0.3);
+    color: var(--text-light);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
+}
+
+.back-button:hover {
+    background: rgba(139, 92, 246, 0.3);
+    border-color: var(--primary-purple);
+    transform: translateX(-5px);
+}
+
+.passcode-content {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(139, 92, 246, 0.3);
+    border-radius: 24px;
+    padding: 2rem;
+    text-align: center;
+    animation: slideInUp 0.5s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.passcode-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.passcode-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--text-light);
+    background: linear-gradient(135deg, var(--primary-purple), var(--accent-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.passcode-subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.passcode-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.passcode-input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(139, 92, 246, 0.3);
+    border-radius: 50px;
+    padding: 1.2rem 2rem;
+    font-size: 1.2rem;
+    color: var(--text-light);
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    letter-spacing: 0.2em;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.passcode-input::placeholder {
+    color: var(--text-muted);
+    letter-spacing: 0;
+}
+
+.passcode-input:focus {
+    border-color: var(--primary-purple);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+    transform: scale(1.02);
+}
+
+.passcode-submit {
+    background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
+    border: none;
+    color: white;
+    padding: 1.2rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.passcode-submit::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.passcode-submit:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.passcode-submit:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+}
+
+.passcode-submit:active {
+    transform: scale(0.98);
+}
+
+.passcode-error {
+    color: #F87171;
+    font-size: 0.9rem;
+    min-height: 1.5rem;
+    margin-top: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.passcode-error.show {
+    opacity: 1;
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .passcode-container {
+        padding: 1rem;
+    }
+
+    .passcode-content {
+        padding: 2rem;
+    }
+
+    .passcode-title {
+        font-size: 2rem;
+    }
+
+    .passcode-subtitle {
+        font-size: 1rem;
+    }
+
+    .passcode-icon {
+        font-size: 3rem;
+    }
+}
+
